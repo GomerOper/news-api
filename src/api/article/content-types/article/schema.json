@@ -11,20 +11,23 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "content": {
-      "type": "blocks"
-    },
     "slug": {
       "type": "uid",
       "targetField": "title",
       "required": true
     },
-    "excerpt": {
-      "type": "string"
-    },
     "title": {
       "type": "string",
       "required": true
+    },
+    "excerpt": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "views": {
+      "type": "integer"
     },
     "coverImage": {
       "type": "media",
@@ -32,9 +35,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "views": {
-      "type": "integer"
     },
     "isFeatured": {
       "type": "boolean"
