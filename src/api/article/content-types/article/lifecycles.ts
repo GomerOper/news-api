@@ -30,7 +30,12 @@ function estimateReadingTime(text, wpm = 200) {
 
 module.exports = {
   async beforeCreate(event) {
-    const { data } = event.params;
+    const { data, where, select } = event.params;
+    const user = event.state.user;
+    if (user) {
+      data.author = user.id;
+    }
+
     if (data.content) {
       const text = toPlainText(data.content);
       data.readingTime = estimateReadingTime(text);
