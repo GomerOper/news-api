@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-10-05T12:24:59.775Z"
+    "x-generation-date": "2025-10-05T14:07:21.365Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -2515,15 +2515,20 @@
             ],
             "type": "object",
             "properties": {
-              "content": {},
               "slug": {
+                "type": "string"
+              },
+              "title": {
                 "type": "string"
               },
               "excerpt": {
                 "type": "string"
               },
-              "title": {
+              "content": {
                 "type": "string"
+              },
+              "views": {
+                "type": "integer"
               },
               "coverImage": {
                 "oneOf": [
@@ -2535,9 +2540,6 @@
                   }
                 ],
                 "example": "string or id"
-              },
-              "views": {
-                "type": "integer"
               },
               "isFeatured": {
                 "type": "boolean"
@@ -2637,15 +2639,20 @@
           "documentId": {
             "type": "string"
           },
-          "content": {},
           "slug": {
+            "type": "string"
+          },
+          "title": {
             "type": "string"
           },
           "excerpt": {
             "type": "string"
           },
-          "title": {
+          "content": {
             "type": "string"
+          },
+          "views": {
+            "type": "integer"
           },
           "coverImage": {
             "type": "object",
@@ -3245,9 +3252,6 @@
               }
             }
           },
-          "views": {
-            "type": "integer"
-          },
           "isFeatured": {
             "type": "boolean"
           },
@@ -3281,15 +3285,20 @@
                     "documentId": {
                       "type": "string"
                     },
-                    "content": {},
                     "slug": {
+                      "type": "string"
+                    },
+                    "title": {
                       "type": "string"
                     },
                     "excerpt": {
                       "type": "string"
                     },
-                    "title": {
+                    "content": {
                       "type": "string"
+                    },
+                    "views": {
+                      "type": "integer"
                     },
                     "coverImage": {
                       "type": "object",
@@ -3419,9 +3428,6 @@
                           }
                         }
                       }
-                    },
-                    "views": {
-                      "type": "integer"
                     },
                     "isFeatured": {
                       "type": "boolean"
@@ -4004,15 +4010,20 @@
                 "documentId": {
                   "type": "string"
                 },
-                "content": {},
                 "slug": {
+                  "type": "string"
+                },
+                "title": {
                   "type": "string"
                 },
                 "excerpt": {
                   "type": "string"
                 },
-                "title": {
+                "content": {
                   "type": "string"
+                },
+                "views": {
+                  "type": "integer"
                 },
                 "coverImage": {
                   "type": "object",
@@ -4611,9 +4622,6 @@
                       }
                     }
                   }
-                },
-                "views": {
-                  "type": "integer"
                 },
                 "isFeatured": {
                   "type": "boolean"
