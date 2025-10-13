@@ -1,5 +1,3 @@
-"use strict";
-
 function toPlainText(input) {
   if (!input) return "";
 

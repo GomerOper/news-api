@@ -42,4 +42,27 @@ export default factories.createCoreController("api::article.article", () => ({
 
     return super.find(ctx);
   },
+
+  async featured(ctx) {
+    const query = (ctx.query ?? {}) as Record<string, any>;
+
+    query.filters = {
+      ...(query.filters || {}),
+      isFeatured: true,
+      publishedAt: { $notNull: true },
+    };
+
+    query.sort = query.sort || "publishedAt:desc";
+    query.populate = toPopulateObject(DEFAULT_RELATIONS);
+
+    ctx.query = query;
+
+    const { results, pagination } = await strapi
+      .service("api::article.article")
+      .find(query);
+
+    const sanitizedResults = await this.sanitizeOutput(results, ctx);
+
+    return this.transformResponse(sanitizedResults, { pagination });
+  },
 }));

@@ -13,7 +13,7 @@ export default ({ env }) => {
         ssl: env.bool("DATABASE_SSL", false),
       },
       pool: {
-        min: env.int("DATABASE_POOL_MIN", 2),
+        min: env.int("DATABASE_POOL_MIN", 1),
         max: env.int("DATABASE_POOL_MAX", 10),
       },
     },
