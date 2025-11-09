@@ -3,8 +3,9 @@ export default {
     {
       method: "GET",
       path: "/articles/featured",
-      handler: "article.featured",
+      handler: "article.findFeatured",
       config: {
+        policies: [],
         auth: false,
       },
     },

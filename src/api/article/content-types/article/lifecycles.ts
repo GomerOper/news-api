@@ -47,4 +47,57 @@ module.exports = {
       data.readingTime = estimateReadingTime(text);
     }
   },
+
+  async afterCreate(event) {
+    const { result } = event;
+
+    if (result.publishedAt) {
+      await strapi.entityService.create(
+        "api::audit-log-custom.audit-log-custom",
+        {
+          data: {
+            action: "create",
+            entity: "article",
+            entityId: result.id.toString(),
+            timestamp: new Date().toISOString(),
+          },
+        }
+      );
+    }
+  },
+
+  async afterDelete(event) {
+    const { result, params } = event;
+    const entityId = params.where.id;
+
+    await strapi.entityService.create(
+      "api::audit-log-custom.audit-log-custom",
+      {
+        data: {
+          action: "delete",
+          entity: "article",
+          entityId: entityId.toString(),
+          timestamp: new Date().toISOString(),
+        },
+      }
+    );
+  },
+
+  async afterUpdate(event) {
+    const { result, params } = event;
+
+    if (params.data.publishedAt && !result.publishedAt) {
+      await strapi.entityService.create(
+        "api::audit-log-custom.audit-log-custom",
+        {
+          data: {
+            action: "publish",
+            entity: "article",
+            entityId: result.id.toString(),
+            timestamp: new Date().toISOString(),
+          },
+        }
+      );
+    }
+  },
 };

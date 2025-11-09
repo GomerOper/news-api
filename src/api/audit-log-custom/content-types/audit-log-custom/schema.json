@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "audit_log_customs",
+  "info": {
+    "singularName": "audit-log-custom",
+    "pluralName": "audit-log-customs",
+    "displayName": "AuditLogCustom"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "action": {
+      "type": "string"
+    },
+    "entity": {
+      "type": "string"
+    },
+    "entityId": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    }
+  }
+}
